@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formulario</title>
+  </head>
+  <body>
+    <div id="formulario">
+      <agregar-usuario v-on:usuario-agregado="agregarUsuario"></agregar-usuario>
+
+      <table class="table mt-5 ml-4 col-6 ">
+        <thead class="thead-light">
+          <tr>
+            <th scope="col">Primer Nombre</th>
+            <th scope="col">Primer Apellido</th>
+            <th scope="col">Edad</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr
+            is="usuario-item"
+            v-for="(usuario, index) in usuarios"
+            v-bind:usuario="usuario"
+            v-on:borrar="eliminarUsuario(index)"
+          />
+        </tbody>
+      </table>
+    </div>
+
+    <script type="module" src="./js/main.js"></script>
+  </body>
+</html>
